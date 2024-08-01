@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh">
+    ' © this is a personal webside, all rights reserved by Joyance, the owner.'
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyance's Plog</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FAFAFA;
+            color: #212121;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #E0E0E0;
+            }
+        }
+        header {
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (prefers-color-scheme: dark) {
+            header {
+                background-color: #1E1E1E;
+            }
+        }
+        nav {
+            background-color: #FFFFFF;
+            padding: 8px 16px;
+        }
+        @media (prefers-color-scheme: dark) {
+            nav {
+                background-color: #1E1E1E;
+            }
+        }
+        nav a {
+            color: #212121;
+            text-decoration: none;
+            margin-right: 16px;
+            font-weight: 500;
+        }
+        @media (prefers-color-scheme: dark) {
+            nav a {
+                color: #E0E0E0;
+            }
+        }
+        .container {
+            padding: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border-radius: 2px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        @media (prefers-color-scheme: dark) {
+            .card {
+                background-color: #2C2C2C;
+            }
+        }
+        .article {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #EEEEEE;
+        }
+        @media (prefers-color-scheme: dark) {
+            .article {
+                border-bottom-color: #424242;
+            }
+        }
+        button {
+            background-color: #212121;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media (prefers-color-scheme: dark) {
+            button {
+                background-color: #4A4A4A;
+                color: #E0E0E0;
+            }
+        }
+        button:hover {
+            background-color: #424242;
+        }
+        @media (prefers-color-scheme: dark) {
+            button:hover {
+                background-color: #616161;
+            }
+        }
+        .pinned {
+            border-left: 4px solid #9E9E9E;
+        }
+        @media (prefers-color-scheme: dark) {
+            .pinned {
+                border-left: 4px solid #757575;
+            }
+        }
+        .article-preview {
+            white-space: pre-wrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+        .article-link {
+            color: #212121;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        @media (prefers-color-scheme: dark) {
+            .article-link {
+                color: #E0E0E0;
+            }
+        }
+        .article-info {
+            font-size: 0.9em;
+            color: #757575;
+            margin-top: 8px;
+        }
+        @media (prefers-color-scheme: dark) {
+            .article-info {
+                color: #BDBDBD;
+            }
+        }
+        .copy-button {
+            margin-left: 10px;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        /* 响应式设计调整 */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px;
+            }
+
+            #controls {
+                margin-top: 12px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            nav a {
+                flex: 1 0 auto;
+                text-align: center;
+                padding: 8px 0;
+            }
+
+            .container {
+                padding: 12px;
+            }
+
+            .card {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="headerTitle">Joyance的博客</h1>
+        <div id="controls">
+            <button onclick="window.location.href='https://joyance-tsui.github.io/plog-classical'">旧版</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showPage('home')" id="navHome">首页</a>
+        <a href="#" onclick="showPage('contact')" id="navContact">联系</a>
+    </nav>
+
+    <div class="container" id="content">
+        <!-- 内容将通过JavaScript动态加载 -->
+    </div>
+
+<script>
+    let articles = [
+        { title: '开启我的个人博客', content: '这是我的第一个个人博客,没有买单独的域名,功能也不齐全(换行的显示还不支持),而且文章是直接存在网页前端程序里的(太简陋了),但是目前应该够用了。 \n\n将来的打算是,这个平台作为我发布我文章的地方。微信公众号和知乎我也会同步跟进。', pinned: true, wordCount: 452, url: 'https://example.com/article1' },
+        { title: '网约车的垄断租', content: '今天坐网约车回家的路上,网约车司机跟我聊了很多网约车对司机的不公的对待,我也由此产生一些想法。这位司机自称是开了五年出租车,又开了七年网约车(具体数字记不清了,大概就是)\n起因是我打车的地方位于经常堵车的地方,上车后司机就开始抱怨导航一定要导到这条路上,称如果可以灵活一点,如果可以让我往前走点,就可以避开前方的拥堵。对于乘客和司机都有益。但是平台的要求就是要根据导航到达目的地才能接送乘客。否则就会', pinned: false, wordCount: 3000, url: 'https://example.com/article2' },
+    ];
+
+    function showPage(page) {
+        let content = '';
+        if (page === 'home') {
+            content = '<div class="card"><h2>❏ 欢迎来到我的个人博客</h2><p>博客是一个信息网站，由离散的、通常是非正式的日记式文本条目（帖子）组成。它是由个人管理的网站或在线日记，用于发布新的文章、图片或视频，用于记录、表达情感或分享信息。</p></div>';
+            articles.forEach(article => {
+                const previewContent = article.content.slice(0, 200) + '...';
+                const wordCount = article.wordCount;
+                const readingTime = Math.ceil(wordCount / 200); // 假设阅读速度为每分钟200字
+                content += `
+                    <div class="card ${article.pinned ? 'pinned' : ''}">
+                        <h3>${article.title}</h3>
+                        <div class="article-preview">${previewContent}</div>
+                        <div class="article-info">
+                            字数：${wordCount} | 阅读时间：约${readingTime}分钟
+                            <a href="${article.url}" class="article-link">阅读更多</a>
+                        </div>
+                    </div>
+                `;
+            });
+        } else if (page === 'contact') {
+            content = `
+                <div class="card">
+                    <h2>联系信息</h2>
+                    <p>邮箱：guangyinzhong@outlook.com <button class="copy-button" onclick="copyToClipboard('guangyinzhong@outlook.com')">复制</button></p>
+                    <p>微信号：Jiayue-Cui <button class="copy-button" onclick="copyToClipboard('Jiayue-Cui')">复制</button></p>
+                    <p>推特账号：@Xixiphus_Jiayue <button class="copy-button" onclick="copyToClipboard('@Xixiphus_Jiayue')">复制</button></p>
+                </div>
+            `;
+        }
+        document.getElementById('content').innerHTML = content;
+    }
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('已复制到剪贴板');
+        }, function(err) {
+            console.error('无法复制文本: ', err);
+        });
+    }
+
+    // 初始加载首页
+    showPage('home');
+</script>
+</body>
+</html>
