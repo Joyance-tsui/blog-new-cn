@@ -201,9 +201,9 @@
 
 <script>
     let articles = [
-        { title: '开启我的个人博客', content: '这是我的第一个个人博客,没有买单独的域名,功能也不齐全(换行的显示还不支持),而且文章是直接存在网页前端程序里的(太简陋了),但是目前应该够用了。 \n\n将来的打算是,这个平台作为我发布我文章的地方。微信公众号和知乎我也会同步跟进。', pinned: true, wordCount: 452, url: 'https://joyance-tsui.github.io/AAAB-cn/' },
-        { title: '网约车的垄断租', content: '今天坐网约车回家的路上,网约车司机跟我聊了很多网约车对司机的不公的对待,我也由此产生一些想法。这位司机自称是开了五年出租车,又开了七年网约车(具体数字记不清了,大概就是)\n起因是我打车的地方位于经常堵车的地方,上车后司机就开始抱怨导航一定要导到这条路上,称如果可以灵活一点,如果可以让我往前走点,就可以避开前方的拥堵。对于乘客和司机都有益。但是平台的要求就是要根据导航到达目的地才能接送乘客。否则就会', pinned: false, wordCount: 3000, url: 'https://joyance-tsui.github.io/AAAC-cn/' },
-        { title: '《1984》——集权的终极形态', content: '刚读完了反乌托邦小说《1984》，发现这本小说确实值得读原版。其他的解读都会对原版的书籍的内容进行压缩，更甚者扭曲原文的内容。而对于其他的，比如这个小说最经典的英社党的标语，其实本身并不荒谬，而是描述当时背景下党以及其他两国所构建的荒谬的世界的理性，当然，也是一种恐怖的理性。如此，不读原版也会造成对原书意的误解。', pinned: false, wordCount: 6353, url: 'https://joyance-tsui.github.io/AAAD-cn/' },
+        { title: '开启我的个人博客', content: '这是我的第一个个人博客,没有买单独的域名,功能也不齐全(换行的显示还不支持),而且文章是直接存在网页前端程序里的(太简陋了),但是目前应该够用了。 \n\n将来的打算是,这个平台作为我发布我文章的地方。微信公众号和知乎我也会同步跟进。', pinned: true, wordCount: 452, url: 'https://joyance-tsui.github.io/AAAB-cn/', mark: '介绍' },
+        { title: '网约车的垄断租', content: '今天坐网约车回家的路上,网约车司机跟我聊了很多网约车对司机的不公的对待,我也由此产生一些想法。这位司机自称是开了五年出租车,又开了七年网约车(具体数字记不清了,大概就是)\n起因是我打车的地方位于经常堵车的地方,上车后司机就开始抱怨导航一定要导到这条路上,称如果可以灵活一点,如果可以让我往前走点,就可以避开前方的拥堵。对于乘客和司机都有益。但是平台的要求就是要根据导航到达目的地才能接送乘客。否则就会', pinned: false, wordCount: 3000, url: 'https://joyance-tsui.github.io/AAAC-cn/', mark: '观点' },
+        { title: '《1984》——集权的终极形态', content: '刚读完了反乌托邦小说《1984》，发现这本小说确实值得读原版。其他的解读都会对原版的书籍的内容进行压缩，更甚者扭曲原文的内容。而对于其他的，比如这个小说最经典的英社党的标语，其实本身并不荒谬，而是描述当时背景下党以及其他两国所构建的荒谬的世界的理性，当然，也是一种恐怖的理性。如此，不读原版也会造成对原书意的误解。', pinned: false, wordCount: 6353, url: 'https://joyance-tsui.github.io/AAAD-cn/', mark: '读书' },
     ];
 
     function showPage(page) {
@@ -213,13 +213,14 @@
             articles.forEach(article => {
                 const previewContent = article.content.slice(0, 200) + '...';
                 const wordCount = article.wordCount;
-                const readingTime = Math.ceil(wordCount / 200); // 假设阅读速度为每分钟200字
+                const mark = article.mark;
+                const readingTime = Math.ceil(wordCount / 200); 
                 content += `
                     <div class="card ${article.pinned ? 'pinned' : ''}">
                         <h3>${article.title}</h3>
                         <div class="article-preview">${previewContent}</div>
                         <div class="article-info">
-                            字数：${wordCount} | 阅读时间：约${readingTime}分钟
+                            字数：${wordCount}|阅读时间：约${readingTime}分钟|分类${mark}|
                             <a href="${article.url}" class="article-link" target="_blank">阅读更多</a>
                         </div>
                     </div>
